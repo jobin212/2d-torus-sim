@@ -1,5 +1,6 @@
 import numpy as np
 
+
 #dimension
 d = 2
 #columns
@@ -37,18 +38,36 @@ def main():
 
 
 
+	for i in range(20):
+		step(charar)
+		printarr(charar)
+
+
+
+
+#iterates through every value in the array, and updates 
+#according to probability distribution
 def step(ca):
 	for i in range(N):
 		for j in range(M):
-			s = np.random.uniform(0,1,1)[0]
-			print s
-			print float(1)/6
-			if(s < float(1)/6):
-				ca[i][j] = '+'
-				print 'hello'
-				print ca[i][j]
-	printarr(ca)
 
+			#better way to get uniformly random variables?
+			#create function transform
+			s = np.random.uniform(0,1,1)[0]
+			
+			if(s < float(1)/6):
+				ca[i,j] = '+'
+			else:
+				ca[i,j] = 'o'
+
+#transform according to weight distribution	
+#def transform
+
+
+#create a graph of objects as seen in paper
+#include arrow directions and lines
+#can you create graph from symbols?
+#def graph
 
 
 def printarr(ca):
