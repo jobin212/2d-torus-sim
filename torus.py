@@ -1,5 +1,5 @@
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 #dimension
 d = 2
@@ -36,11 +36,12 @@ def main():
 	step(charar)
 	printarr(charar)
 
+	x = np.arange(0, 5, 0.1)
+	y = np.sin(x)
+	plt.plot(x, y)
+	plt.show()
 
-
-	for i in range(20):
-		step(charar)
-		printarr(charar)
+	
 
 
 
