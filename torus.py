@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.pyplot import cm
 
 #dimension
 d = 2
@@ -36,12 +37,32 @@ def main():
 	step(charar)
 	printarr(charar)
 
-	x = np.arange(0, 5, 0.1)
-	y = np.sin(x)
-	plt.plot(x, y)
-	plt.show()
+	Y, X = np.mgrid[-3:3:15j, -3:3:15j]
+	U = -1 - np.cos(X**2 + Y)
+	V = 1 + X - Y
+	speed = np.sqrt(U**2 + V**2)
+	UN = U/speed
+	VN = V/speed
 
-	
+	plot1 = plt.figure()
+	plt.quiver(X, Y, UN, VN, U, cmap = cm.seismic, headlength = 7)
+
+	plt.colorbar()
+
+	plt.title('Invariant Matrices')
+	plt.show(plot1)
+
+	#x = np.arange(0, 5, 0.1)
+	#y = np.sin(x)
+	#plt.plot(x, y)
+	#plt.show()
+
+	#T = range(charar.shape[0])
+	#for i in range(charar.shape[1]):
+	#	plt.plot(T, M[:i])
+	#plt.show()
+
+		
 
 
 
